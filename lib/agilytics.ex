@@ -3,7 +3,7 @@ defmodule Agilytics do
     Enum.map(dataset.issues, fn issue ->
       first = List.first(issue.timings)
       last = List.last(issue.timings)
-      Map.put(issue, :cycle_time, DateTime.diff(last, first))
+      Map.put(issue, :cycle_time, DateTime.diff(first, last))
     end)
   end
 
@@ -67,6 +67,12 @@ defmodule Agilytics do
     |> Enum.group_by(fn x -> x end)
     |> Enum.reduce(%{}, fn {k, v}, acc ->
       Map.put(acc, k, length(v))
+    end)
+  end
+
+  def percentiles(values) do
+    Enum.map(1..100, fn p ->
+      {p, Statistics.percentile(values, p)}
     end)
   end
 end
