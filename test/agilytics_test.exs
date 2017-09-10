@@ -17,11 +17,14 @@ defmodule AgilyticsTest do
     Agilytics.throughput(dataset)
     |> IO.inspect
     IO.puts("MONTE CARLO HOW MANY")
-    Agilytics.monte_carlo_how_many(dataset, 30, 1000)
-    |> IO.inspect
+    monte_how = Agilytics.monte_carlo_how_many(dataset, 30, 1000)
+                |> IO.inspect
     IO.puts("MONTE CARLO WHEN")
-    Agilytics.monte_carlo_when(dataset, 44, 1000)
-    |> IO.inspect
+    monte_when = Agilytics.monte_carlo_when(dataset, 44, 1000)
+                 |> IO.inspect
+
+    File.write!('./monte_when.json', Poison.encode!(monte_when), [:binary])
+    File.write!('./monte_how.json', Poison.encode!(monte_how), [:binary])
     assert true
   end
 end

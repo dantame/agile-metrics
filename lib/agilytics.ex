@@ -61,12 +61,12 @@ defmodule Agilytics do
   end
 
   defp monte_carlo_trial(trial, trial_args, num_trials) do
-    trials = Enum.map(1..num_trials, fn _ ->
+    Enum.map(1..num_trials, fn _ ->
       apply(trial, trial_args)
     end)
-
-    Enum.map(1..100, fn p ->
-      {p, Statistics.percentile(trials, p)}
+    |> Enum.group_by(fn x -> x end)
+    |> Enum.reduce(%{}, fn {k, v}, acc ->
+      Map.put(acc, k, length(v))
     end)
   end
 end
