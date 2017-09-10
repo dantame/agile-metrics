@@ -10,6 +10,7 @@ defmodule AgilyticsTest do
     Agilytics.cycle_time(dataset)
     Agilytics.avg_cycle_time(dataset)
     Agilytics.throughput(dataset)
+    Agilytics.monte_carlo_how_many(dataset, 30, 1000)
     assert true
   end
 end

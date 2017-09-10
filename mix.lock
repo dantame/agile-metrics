@@ -1,2 +1,3 @@
-%{"blacksmith": {:hex, :blacksmith, "0.2.1", "6045f9fbcb74f15cf2e3966349d78c09eae0c63665d556331df979622ae2e879", [], [{:faker, "~> 0.7", [hex: :faker, repo: "hexpm", optional: false]}], "hexpm"},
-  "faker": {:hex, :faker, "0.9.0", "b22c55967fbd3413b9e5c121e59e75a553065587cf31e5aa2271b6fae2775cde", [:mix], [], "hexpm"}}
+%{"blacksmith": {:hex, :blacksmith, "0.2.1", "6045f9fbcb74f15cf2e3966349d78c09eae0c63665d556331df979622ae2e879", [:mix], [{:faker, "~> 0.7", [hex: :faker, repo: "hexpm", optional: false]}], "hexpm"},
+  "faker": {:hex, :faker, "0.9.0", "b22c55967fbd3413b9e5c121e59e75a553065587cf31e5aa2271b6fae2775cde", [:mix], [], "hexpm"},
+  "statistics": {:hex, :statistics, "0.4.1", "e9bfe6649f70842d9ebce69aa31ac8b6928e096bde43b683d7d673057237d028", [:mix], [], "hexpm"}}
