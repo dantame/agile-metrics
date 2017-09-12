@@ -8,8 +8,9 @@ defmodule Agilytics.Main do
       true ->
         Agilytics.JIRA.pull
       _ ->
-        IO.puts("NOT PULLING")
-        #Agilytics.gather_metrics(File.read!("./issues.json"))
+        Agilytics.Loader.load
+        |> Agilytics.Metrics.find_end_state
+        |> IO.inspect
     end
   end
 

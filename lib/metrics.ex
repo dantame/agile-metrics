@@ -75,4 +75,13 @@ defmodule Agilytics.Metrics do
       {p, Statistics.percentile(values, p)}
     end)
   end
+
+  def find_end_state(dataset) do
+    dataset.issues
+    |> Enum.filter(&(&1.resolution != nil))
+    |> Enum.map(&(&1.resolution))
+    |> Enum.chunk_by(&(&1))
+    |> Enum.max_by(&(length(&1)))
+    |> List.first
+  end
 end
