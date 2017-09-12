@@ -1,6 +1,6 @@
 defmodule Agilytics.Loader do
-  def load do
-    loaded_data = File.read!("./issues.json")
+  def load(path) do
+    loaded_data = File.read!(path)
     |> Poison.Parser.parse!(keys: :atoms)
     |> convert_to_datetime
 
