@@ -8,20 +8,20 @@ defmodule AgilyticsTest do
       issues: Enum.concat(Forge.issue_list(90), Forge.bug_list(10))
     }
     IO.puts("CYCLE TIME")
-    Agilytics.cycle_time(dataset)
+    Agilytics.Metrics.cycle_time(dataset)
     |> IO.inspect
     IO.puts("AVG CYCLE TIME")
-    Agilytics.avg_cycle_time(dataset)
+    Agilytics.Metrics.avg_cycle_time(dataset)
     |> IO.inspect
     IO.puts("THROUGHPUT")
-    throughput = Agilytics.throughput(dataset)
+    throughput = Agilytics.Metrics.throughput(dataset)
     |> IO.inspect
     IO.puts("MONTE CARLO HOW MANY")
-    monte_how = Agilytics.monte_carlo_how_many(dataset, 30, 100000)
+    monte_how = Agilytics.Metrics.monte_carlo_how_many(dataset, 30, 1000)
                 |> IO.inspect
 
     IO.puts("MONTE CARLO WHEN")
-    monte_when = Agilytics.monte_carlo_when(dataset, 44, 100000)
+    monte_when = Agilytics.Metrics.monte_carlo_when(dataset, 44, 1000)
                  |> IO.inspect
 
     File.write!('./monte_when.json', Poison.encode!(monte_when), [:binary])

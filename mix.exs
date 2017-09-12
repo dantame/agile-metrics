@@ -7,14 +7,15 @@ defmodule Agilytics.Mixfile do
       version: "0.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
-      deps: deps()
+      deps: deps(),
+      escript: [main_module: Agilytics.Main]
     ]
   end
 
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :faker, :blacksmith]
+      extra_applications: [:logger, :faker, :blacksmith, :httpoison]
     ]
   end
 
@@ -24,7 +25,8 @@ defmodule Agilytics.Mixfile do
       {:faker, "~> 0.9"},
       {:blacksmith, "~> 0.1"},
       {:statistics, "~> 0.4.0"},
-      {:poison, "~> 3.1"}
+      {:poison, "~> 3.1"},
+      {:httpoison, "~> 0.13"}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
